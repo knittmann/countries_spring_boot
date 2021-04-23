@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>New Country</title>
+<style type="text/css">
+	button {
+		padding: 10px;
+	}
+	span {
+		color: red;
+		font-style: italic;
+	}
+	form {
+		display: table;
+	}
+	form div {
+		display: table-row;
+	}
+	label, input, span, select {
+		display: table-cell;
+		margin: 5px;
+		text-align: left;		
+	}
+	input[type=text] {
+		width: 200px;
+		margin: 5px;
+	}
+
+	form div div {
+		display: table-cell;
+	}
+</style>
+</head>
+
+<h1>Add New Country</h1>
+<body>
+	<div>
+		<form action="#" th:action="@{/add}" th:object="${newcountry}" method="post">
+			<div>
+				<label>Name:</label>
+				<input type="text" th:field="*{name}" />
+				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Country name error</span><br>
+			</div>
+			<div>
+				<label>Capital:</label>
+				<input type="text" th:field="*{capitol}" />
+				<span th:if="${#fields.hasErrors('capitol')}" th:errors="*{capitol}">Capital name error</span><br>
+			</div>
+			<div>
+				<label>Population:</label>
+				<input type="text" th:field="*{population}" />
+				<span th:if="${#fields.hasErrors('population')}" th:errors="*{population}">Population error</span><br>
+			</div>
+			<div>
+				<button type="submit">Save</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

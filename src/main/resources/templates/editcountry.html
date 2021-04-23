@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Country Population</title>
+</head>
+
+<h1 th:text="${country.name}">Country</h1>
+<h2>Edit Population</h2>
+<body>
+	<form th:action="@{/update}" th:object="${country}" method="post">
+		<input type="text" th:field="*{id}" readonly="readonly" hidden="hidden" /><br>
+		<input type="text" th:field="*{name}" readonly="readonly" hidden="hidden" /><br>
+		<input type="text" th:field="*{capitol}" readonly="readonly" hidden="hidden" /><br>
+		Population: <input type="text" th:field="*{population}" />
+		<button type="submit">Save</button>
+	</form>
+
+</body>
+</html>
